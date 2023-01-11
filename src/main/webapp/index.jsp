@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="icon" type="image/png" href="favicon.ico"/>
 </head>
 <title>Micrometer (Prometheus) to Grafana dashboard Convertor</title>
 <body>
@@ -29,6 +30,8 @@
 
 <div class="form-group">
   <label for="exampleFormControlTextarea3">Paste your micrometer output (/actuator/prometheus)</label>
+</div>
+<div class="form-group">
   <textarea class="form-control" id="exampleFormControlTextarea3" rows="10" type="text" name="micrometer"></textarea>
 </div>
 

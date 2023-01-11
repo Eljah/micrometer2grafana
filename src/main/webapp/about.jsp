@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><!-- jQuery library -->
+<link rel="icon" type="image/png" href="favicon.ico"/>
 <style>
 .carousel-caption {
     position: relative;
@@ -34,12 +35,18 @@ Micrometer (Prometheus) to Grafana dashboard Convertor
     </ul>
   </div>
 </nav>
-      <div>
+<div class="container">
+<div class="form-group">
+      <div class="lead">
       Often we need to set up new Grafana dashboards for our own applications and we can't rely on predefined dashboards from <a href="https://grafana.com/grafana/dashboards/">Grafana Dashboards repository</a>.
       </div>
-      <div>
+      </div>
+      <div class="form-group">
+      <div class="lead">
       We provide you a way convert a sample of Micrometer (Prometheus) formatted metrics to simplistic Grafana dashboard to make you get very first understanding of all trends of all metrics.
       </div>
+      </div>
+</div>
 
 
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
