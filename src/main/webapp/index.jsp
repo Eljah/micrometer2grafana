@@ -38,5 +38,14 @@
 <input type="submit" class="btn btn-primary" value="Submit">
 </form>
 </div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MFLHJH67Y4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MFLHJH67Y4');
+</script>
 </body>
 </html>
