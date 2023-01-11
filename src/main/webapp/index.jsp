@@ -5,6 +5,7 @@
 </head>
 <title>Micrometer (Prometheus) to Grafana dashboard Convertor</title>
 <body>
+<div class="container">
 <h1>Micrometer (Prometheus) to Grafana dashboard Convertor</h1>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,7 +32,8 @@
   <textarea class="form-control" id="exampleFormControlTextarea3" rows="10" type="text" name="micrometer"></textarea>
 </div>
 
-<input type="submit" value="Submit">
+<input type="submit" class="btn btn-primary" value="Submit">
 </form>
+</div>
 </body>
 </html>

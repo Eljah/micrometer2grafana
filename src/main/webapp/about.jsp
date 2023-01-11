@@ -14,6 +14,9 @@
 Micrometer (Prometheus) to Grafana dashboard Convertor
 </title>
 <body>
+
+
+<div class="container">
 <h1>How to use the Convertor</h1>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,42 +34,64 @@ Micrometer (Prometheus) to Grafana dashboard Convertor
     </ul>
   </div>
 </nav>
+      <div>
+      Often we need to set up new Grafana dashboards for our own applications and we can't rely on predefined dashboards from <a href="https://grafana.com/grafana/dashboards/">Grafana Dashboards repository</a>.
+      </div>
+      <div>
+      We provide you a way convert a sample of Micrometer (Prometheus) formatted metrics to simplistic Grafana dashboard to make you get very first understanding of all trends of all metrics.
+      </div>
 
-<div class="container">
+
   <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
       <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
       <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="1.png" class="d-block w-100" alt="...">
+        <img src="0.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block bg-dark mb-4">
           <h5>Get your Micrometer metrics example</h5>
           <p>Start or access the application's URL where you have the Micrometer-format metrics</p>
         </div>
       </div>
       <div class="carousel-item">
+        <img src="1.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+         <h5>Copy metrics example</h5>
+         <p>Copy the whole plain text of the metrics data and paste it to the textarea field on our site</p>
+        </div>
+      </div>
+      <div class="carousel-item">
         <img src="2.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block bg-dark mb-4">
-          <h5>Copy metrics example</h5>
-          <p>Copy the whole plain text of the metrics data and past it to the textaea field on our site</p>
+          <h5>Submit metrics example and get Grafana dashboard JSON config</h5>
+          <p>Click submit and get the resulting plain text page with the JSON config of your future Grafana dashboard, then copy it</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="3.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block bg-dark mb-4">
-          <h5>Get Grafana dashboard JSON config</h5>
-          <p>Submit the form, get the resulting plain text page with the json config of your future Grafana dashboard and copy it</p>
+          <h5>Start new Grafana dashboard import</h5>
+          <p>Start new Grafana dashboard import and find the JSON config window there</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="4.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block bg-dark mb-4">
           <h5>Create Grafana dashboard from the JSON config</h5>
-          <p>Import the json as the new Grafana dashboard. We assume you have already set up the <plain>Prometheus</plain> as your datasource (otherwise set it up in the form)</p>
+          <p>Paste the JSON as the new Grafana dashboard. We assume you have already set up the <plain>Prometheus</plain> as your datasource (otherwise set it up in the form)</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="5.png" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block bg-dark mb-4">
+          <h5>Enjoy the dashboard and explore the data</h5>
+          <p>Take a look on the dashboard that has been generated. Metrics name is put to it's title. Feel free to customize and remove panels</p>
         </div>
       </div>
     </div>
