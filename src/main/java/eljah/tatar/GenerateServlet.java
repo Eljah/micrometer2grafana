@@ -83,7 +83,7 @@ public class GenerateServlet extends HttpServlet {
             "  \"version\": 1\n" +
             "}";
 
-    final static String PANEL_TEMPLATE = "{\n" +
+    final static String PANEL_TEMPLATE_PLAIN = "{\n" +
             "      \"aliasColors\": {},\n" +
             "      \"bars\": false,\n" +
             "      \"dashLength\": 10,\n" +
@@ -172,8 +172,8 @@ public class GenerateServlet extends HttpServlet {
             "          \"min\": null,\n" +
             "          \"show\": true\n" +
             "        }]\n" +
-            "},\n" +
-            "{\n" +
+            "}";
+    final static String PANEL_TEMPLATE_DERIVATIVE = "{\n" +
             "      \"aliasColors\": {},\n" +
             "      \"bars\": false,\n" +
             "      \"dashLength\": 10,\n" +
@@ -270,6 +270,9 @@ public class GenerateServlet extends HttpServlet {
         String configName
                 = req.getParameter("micrometer");
 
+        String format
+                = req.getParameter("format");
+
 
         StringBuilder resultStringBuilder = new StringBuilder();
         Set<String> uniqueValues = new HashSet<>();
@@ -286,8 +289,14 @@ public class GenerateServlet extends HttpServlet {
             if (!line.contains("#")) {
                 boolean unique = uniqueValues.add(line);
                 if (unique) {
-                    line = String.format(PANEL_TEMPLATE, line, i++, i++);
-                    resultStringBuilder.append("\n").append(line).append(",");
+                    if (format.equals("plain") || format.equals("both")) {
+                        line = String.format(PANEL_TEMPLATE_PLAIN, line, i++, i++);
+                        resultStringBuilder.append("\n").append(line).append(",");
+                    }
+                    if (format.equals("derivative") || format.equals("both")) {
+                        line = String.format(PANEL_TEMPLATE_DERIVATIVE, line, i++, i++);
+                        resultStringBuilder.append("\n").append(line).append(",");
+                    }
                 }
             }
         }

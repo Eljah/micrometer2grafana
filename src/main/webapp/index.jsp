@@ -42,6 +42,11 @@
 </div>
 <div class="form-group">
   <textarea class="form-control" id="exampleFormControlTextarea3" rows="10" type="text" name="micrometer"></textarea>
+  <div class="container">
+  <INPUT TYPE="radio" name="format" value="plain"/>Plain values<br>
+  <INPUT TYPE="radio" NAME="format" VALUE="derivative"/>Derivative values<br>
+  <INPUT TYPE="radio" NAME="format" VALUE="both"/>2 dashboards for both
+  </div>
 </div>
 
 <input type="submit" class="btn btn-primary" value="Submit">
