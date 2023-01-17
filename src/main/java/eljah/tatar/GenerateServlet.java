@@ -78,8 +78,8 @@ public class GenerateServlet extends HttpServlet {
             "    ]\n" +
             "  },\n" +
             "  \"timezone\": \"\",\n" +
-            "  \"title\": \"Camel [Spring Boot Statistics]\",\n" +
-            "  \"uid\": \"camel\",\n" +
+            "  \"title\": \"%2$s\",\n" +
+            "  \"uid\": \"%1$s\",\n" +
             "  \"version\": 1\n" +
             "}";
 
@@ -88,7 +88,7 @@ public class GenerateServlet extends HttpServlet {
             "      \"bars\": false,\n" +
             "      \"dashLength\": 10,\n" +
             "      \"dashes\": false,\n" +
-            "      \"datasource\": \"Prometheus\",\n" +
+            "      \"datasource\": \"%4$s\",\n" +
             "      \"fieldConfig\": {\n" +
             "        \"defaults\": {\n" +
             "          \"custom\": {}\n" +
@@ -178,7 +178,7 @@ public class GenerateServlet extends HttpServlet {
             "      \"bars\": false,\n" +
             "      \"dashLength\": 10,\n" +
             "      \"dashes\": false,\n" +
-            "      \"datasource\": \"Prometheus\",\n" +
+            "      \"datasource\": \"%4$s\",\n" +
             "      \"fieldConfig\": {\n" +
             "        \"defaults\": {\n" +
             "          \"custom\": {}\n" +
@@ -231,7 +231,7 @@ public class GenerateServlet extends HttpServlet {
             "      \"timeFrom\": null,\n" +
             "      \"timeRegions\": [],\n" +
             "      \"timeShift\": null,\n" +
-            "      \"title\": \"rate(%1$s[5m])\",\n" +
+            "      \"title\": \"rate(%1$s[%5$s])\",\n" +
             "      \"tooltip\": {\n" +
             "        \"shared\": true,\n" +
             "        \"sort\": 0,\n" +
@@ -273,6 +273,17 @@ public class GenerateServlet extends HttpServlet {
         String format
                 = req.getParameter("format");
 
+        String time
+                = req.getParameter("time");
+
+        String datasource
+                = req.getParameter("datasource");
+
+        String uid
+                = req.getParameter("uid");
+
+        String title
+                = req.getParameter("title");
 
         StringBuilder resultStringBuilder = new StringBuilder();
         Set<String> uniqueValues = new HashSet<>();
@@ -290,11 +301,11 @@ public class GenerateServlet extends HttpServlet {
                 boolean unique = uniqueValues.add(line);
                 if (unique) {
                     if (format.equals("plain") || format.equals("both")) {
-                        line = String.format(PANEL_TEMPLATE_PLAIN, line, i++, i++);
+                        line = String.format(PANEL_TEMPLATE_PLAIN, line, i++, i++, datasource, time);
                         resultStringBuilder.append("\n").append(line).append(",");
                     }
                     if (format.equals("derivative") || format.equals("both")) {
-                        line = String.format(PANEL_TEMPLATE_DERIVATIVE, line, i++, i++);
+                        line = String.format(PANEL_TEMPLATE_DERIVATIVE, line, i++, i++, datasource, time);
                         resultStringBuilder.append("\n").append(line).append(",");
                     }
                 }
@@ -303,7 +314,7 @@ public class GenerateServlet extends HttpServlet {
         scanner.close();
         resultStringBuilder.deleteCharAt(resultStringBuilder.length() - 1);
 
-        resultStringBuilder.append(POST_PANEL);
+        resultStringBuilder.append(String.format(POST_PANEL, uid, title));
 
         System.out.println(resultStringBuilder.toString());
         res.getOutputStream().write(resultStringBuilder.toString().getBytes(StandardCharsets.UTF_8));
