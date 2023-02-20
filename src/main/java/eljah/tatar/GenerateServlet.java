@@ -44,7 +44,7 @@ public class GenerateServlet extends HttpServlet {
             "  \"id\": 73,\n" +
             "  \"iteration\": 1673373181126,\n" +
             "  \"links\": [],\n" +
-            "  \"panels\": [";
+            "  \"panels\": [\n";
 
     final static String POST_PANEL = "],\n" +
             "  \"time\": {\n" +
