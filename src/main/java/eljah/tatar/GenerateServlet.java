@@ -219,7 +219,7 @@ public class GenerateServlet extends HttpServlet {
             "      \"steppedLine\": false,\n" +
             "      \"targets\": [\n" +
             "        {\n" +
-            "          \"expr\": \"rate(%1$s[5m])\",\n" +
+            "          \"expr\": \"rate(%1$s[%5$s])\",\n" +
             "          \"interval\": \"\",\n" +
             "          \"legendFormat\": \"\",\n" +
             "          \"refId\": \"A\"\n" +
@@ -299,12 +299,12 @@ public class GenerateServlet extends HttpServlet {
                 boolean unique = uniqueValues.add(line);
                 if (unique) {
                     if (format.equals("plain") || format.equals("both")) {
-                        line = String.format(PANEL_TEMPLATE_PLAIN, line, i++, i++, datasource, time);
-                        resultStringBuilder.append("\n").append(line).append(",");
+                        String line1 = String.format(PANEL_TEMPLATE_PLAIN, line, i++, i++, datasource, time);
+                        resultStringBuilder.append("\n").append(line1).append(",");
                     }
                     if (format.equals("derivative") || format.equals("both")) {
-                        line = String.format(PANEL_TEMPLATE_DERIVATIVE, line, i++, i++, datasource, time);
-                        resultStringBuilder.append("\n").append(line).append(",");
+                        String line2 = String.format(PANEL_TEMPLATE_DERIVATIVE, line, i++, i++, datasource, time);
+                        resultStringBuilder.append("\n").append(line2).append(",");
                     }
                 }
             }
